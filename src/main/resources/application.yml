@@ -9,6 +9,9 @@ logging:
               RouteDefinitionLocator: INFO
             nodeValue: TRACE
     root: info
+  #Configuring logging pattern:
+  pattern:
+    level: "%5p [${spring.application.name:}, %X{traceId:-},%X{spanId:-}]"
 
 
 spring:
@@ -48,3 +51,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eureka:password@localhost:8761/eureka
+
+
+
+#Configuring the percentage
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+
